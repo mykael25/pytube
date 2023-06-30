@@ -10,14 +10,20 @@ print(f'Downloading: {p.title}')
 
 for video in p.videos:
 	print("Downloading: ", video.title)
-	video.streams.first().download()
+	video.streams.get_by_itag(251).download()
 	
-#vids[vnum].download(r"C:\Users\mykael\Desktop\yt-playlist-master")
-	default_filename = video.streams.first().default_filename
-	default_filename1=default_filename.strip(".mp4")
-	#new_filename = input("Enter filename (including extension): ") # e.g. new_filename.mp3
+#vids[vnum].download(r"/data/data/com.termux/files/home/storage/shared/pytube/pytube/mp3")
+
+
+	default_filename = video.streams.get_by_itag(251).default_filename
+	default_filename1=default_filename.strip(".webm")
 	new_filename = default_filename1+".mp3"
-	parent_dir = r"C:\Users\mykael\Desktop\PYTHON\yt"
+
+#default_filename = video.streams.first().default_filename
+#default_filename1=default_filename.strip(".mp4")
+#new_filename = input("Enter filename (including extension): ") # e.g. new_filename.mp3
+	new_filename = default_filename1+".mp3"
+	parent_dir = r"/data/data/com.termux/files/home/storage/shared/pytube/pytube/mp3"
 	#vids[vnum].download(parent_dir)
 
 	#default_filename = video.streams.first().default_filename  # get default name using pytube API

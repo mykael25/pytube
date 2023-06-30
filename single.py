@@ -11,7 +11,7 @@ yt = pytube.YouTube(link)
 print("Downloading: ", yt.title)
 # https://youtu.be/XFkzRNyygfk
 
-parent_dir = r"/data/data/com.termux/files/home/storage/shared/pytube"
+parent_dir = r"/data/data/com.termux/files/home/storage/shared/pytube/pytube/mp3"
 
 yt.streams.get_by_itag(251).download()
 
