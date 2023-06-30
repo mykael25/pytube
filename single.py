@@ -9,13 +9,16 @@ link=link+link2
 yt = pytube.YouTube(link)
 
 print("Downloading: ", yt.title)
-vids= yt.streams.first().download()
+# https://youtu.be/XFkzRNyygfk
 
-default_filename = yt.streams.first().default_filename
-default_filename1=default_filename.strip(".mp4")
-#new_filename = input("Enter filename (including extension): ") # e.g. new_filename.mp3
-new_filename = default_filename1+".mp3"
 parent_dir = r"/data/data/com.termux/files/home/storage/shared/pytube"
+
+yt.streams.get_by_itag(251).download()
+
+default_filename = yt.streams.get_by_itag(251).default_filename
+default_filename1=default_filename.strip(".webm")
+new_filename = default_filename1+".mp3"
+
 
 
 subprocess.run([
